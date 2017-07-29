@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'mobileia-file'
+
+    publishedGroupId = 'com.mobileia'
+    libraryName = 'MIA File Library'
+    artifact = 'file'
+
+    libraryDescription = 'Library for upload files.'
+
+    siteUrl = 'https://github.com/MobileIA/mia-file-android'
+    gitUrl = 'https://github.com/MobileIA/mia-file-android.git'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 'mobileia'
+    developerName = 'MobileIA'
+    developerEmail = 'matias.camiletti@mobileia.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "0.0.1"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.mobileia:core:0.0.3'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    testCompile 'junit:junit:4.12'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+}
+
+apply from: '../installv1.gradle'
+apply from: '../bintrayv1.gradle'
