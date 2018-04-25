@@ -24,7 +24,7 @@ public class RestGenerator {
     /**
      * URL de la API
      */
-    private static final String API_BASE_URL = "http://files.mobileia.com/";
+    private static final String API_BASE_URL = "https://files.mobileia.com/";
     /**
      * Almacena la instancia de Retrofit
      */
