@@ -1,11 +1,8 @@
 package com.mobileia.file.rest;
 
-import android.util.Log;
-
 import com.mobileia.core.Mobileia;
 
 import java.io.File;
-import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -30,6 +27,7 @@ public class RestGenerator {
      */
     private static Retrofit sRetrofit = new Retrofit.Builder()
             .baseUrl(API_BASE_URL)
+            .client(UnsafeOkHttpClient.getUnsafeOkHttpClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
